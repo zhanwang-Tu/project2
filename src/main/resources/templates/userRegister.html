@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ea;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .registration-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .registration-container h2 {
+            color: #4CAF50;
+        }
+
+        .input-field {
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .input-field label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .input-field input[type="text"],
+        .input-field input[type="password"] {
+            width: calc(100% - 10px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .input-field input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .input-field input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<div class="registration-container">
+    <h2>用户注册</h2>
+    <form action="/register" method="post">
+        <div class="input-field">
+            <label for="username">账号名:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="input-field">
+            <label for="password">密码:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="input-field">
+            <label for="fullName">真实姓名:</label>
+            <input type="text" id="fullName" name="fullName" required>
+        </div>
+        <div class="input-field">
+            <label for="email">邮箱:</label>
+            <input type="text" id="email" name="email" required>
+        </div>
+        <div class="input-field">
+            <input type="submit" value="Register">
+        </div>
+    </form>
+</div>
+</body>
+</html>

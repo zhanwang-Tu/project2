@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            background-color: #f0f8ea; /* 柔和的绿色背景 */
+            font-family: Arial, sans-serif; /* 字体 */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative; /* 父元素相对定位 */
+        }
+
+        .login-container {
+            background-color: #ffffff; /* 白色背景 */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+            padding: 30px;
+            width: 300px;
+            text-align: center;
+            position: relative; /* 子元素绝对定位的参照 */
+        }
+
+        .login-container h2 {
+            color: #4CAF50; /* 绿色标题 */
+        }
+
+        .input-field {
+            margin: 20px 0;
+        }
+
+        .input-field input[type="text"],
+        .input-field input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .input-field input[type="submit"] {
+            background-color: #4CAF50; /* 绿色按钮 */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .input-field input[type="submit"]:hover {
+            background-color: #45a049; /* 深绿色按钮，悬停状态 */
+        }
+
+        /* 新增样式 */
+        .admin-login, .doctor-login {
+            position: absolute;
+            top: 10px;
+            font-size: 14px;
+        }
+
+        .doctor-login {
+            right: 10px;
+        }
+
+        .register-link {
+            font-size: 12px;
+            color: #333;
+            text-decoration: none;
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%); /* 居中 */
+        }
+    </style>
+</head>
+<body>
+<div class="login-container">
+    <h2>医疗预约登入</h2>
+    <!-- 添加管理员登入和医生登入按钮 -->
+    <a href="/admin-login" class="admin-login">管理员登入</a>
+    <a href="/doctor-login" class="doctor-login">医生登入</a>
+    <form action="/login" method="post">
+        <div class="input-field">
+            <input type="text" name="username" placeholder="用户账号">
+        </div>
+        <div class="input-field">
+            <input type="password" name="password" placeholder="密码">
+        </div>
+        <div class="input-field">
+            <input type="submit" value="Login">
+        </div>
+        <!-- 添加注册链接 -->
+        <a href="userRegister.html" class="register-link">没有账号？点击注册</a>
+    </form>
+</div>
+</body>
+<!-- JavaScript 代码 -->
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var errorMessage = /*[[${errorMessage}]]*/ ''; // 从后端传递的错误消息
+    if (errorMessage) {
+        alert(errorMessage); // 如果有错误消息，则弹出警告框
+    }
+    /*]]>*/
+</script>
+</html>
